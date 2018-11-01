@@ -11,35 +11,19 @@ import history from './history';
 import stores from './stores';
 import Pages from './pages';
 
-window.XLS_GLOBAL_STORES = stores;
+window.RAYR_GLOBAL_STORES = stores;
 
 export default class extends Component {
 
     constructor() {
         super();
         this.state = {
-            isAuth: false
+            isAuth: true
         };
         this.points = [];
     }
 
     componentWillMount() {
-        $_agent.user().then((res) => {
-            XLS_GLOBAL_STORES.UserStore.initUser(res);
-            XLS_GLOBAL_STORES.PointsStore.initPoints(res);
-            if (res.level !== 1) {
-                $_ajax.post('bcbase/v1/shop/shopDetail', {
-                    id: res.shopId
-                }).then((val) => {
-                    $_localstorage.set('shopId', val.id);
-                    $_localstorage.set('shopName', val.shopName);
-                });
-            }
-        }).finally(() => {
-            this.setState({
-                isAuth: true
-            });
-        });
     }
 
     render() {

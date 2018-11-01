@@ -9,4 +9,4 @@ configure({
     isolateGlobalState: true
 });
 
-render(<Auth/>, document.getElementById('rias'));
+render(<Auth/>, document.getElementById('rayr'));

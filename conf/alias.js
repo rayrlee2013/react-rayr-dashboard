@@ -8,6 +8,5 @@ const APPATH = require('./config').path.APPPATH;
 module.exports = {
     services: path.resolve(__dirname, APPATH + 'services'),
     components: path.resolve(__dirname, APPATH + 'components'),
-    stores: path.resolve(__dirname, APPATH + 'stores'),
-    rayr: path.resolve(__dirname, APPATH + 'rayr'),
+    stores: path.resolve(__dirname, APPATH + 'stores')
 }

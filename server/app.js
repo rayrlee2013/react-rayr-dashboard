@@ -13,7 +13,6 @@ import chalk from 'chalk';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../conf/webpack.dev';
-import {EslintFn} from './util';
 
 const helper = require('./helper');
 const CONFIG = require('../conf/config');
@@ -53,12 +52,6 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-CONFIG.static_dir.map((item) => {
-    app.use(`/${item}`, express.static(path.join(compiler.outputPath, item)));
-});
-
-app.use(/\/bc[^\/]*/, proxy({target: `http://${TARGET}`, changeOrigin: false}));
-
 app.get('*', (req, res, next) => {
     const filename = path.join(compiler.outputPath, 'index.html');
     compiler.outputFileSystem.readFile(filename, (error, result) => {
@@ -73,9 +66,7 @@ app.get('*', (req, res, next) => {
 });
 
 const server = http.createServer(app);
-//校验代码
-EslintFn();
 //服务器
 server.listen(urlParts.port, () => {
-    log(chalk.cyan(`Express服务器启动：${devURL}`));
+    log(chalk.cyan(`本地编译服务器启动：${devURL}`));
 });
