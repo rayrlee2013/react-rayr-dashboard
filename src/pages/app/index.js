@@ -3,7 +3,7 @@
  */
 
 import React, {Component, Fragment} from 'react';
-import {Header, Siderbar, Footer} from './layout';
+import {Header, Siderbar, Footer} from './public';
 
 export default class extends Component {
 
