@@ -2,10 +2,9 @@
  * Created by Rayr Lee on 2018/6/11.
  */
 
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import {Provider} from 'mobx-react';
 import {Router} from 'react-router';
-import {$_agent, $_toast, $_localstorage, $_ajax} from 'services';
 
 import history from './history';
 import stores from './stores';
@@ -20,10 +19,10 @@ export default class extends Component {
         this.state = {
             isAuth: true
         };
-        this.points = [];
     }
 
     componentWillMount() {
+
     }
 
     render() {

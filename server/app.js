@@ -19,7 +19,7 @@ const CONFIG = require('../conf/config');
 const {log} = console;
 
 const TARGET = helper.findArg('target') || CONFIG.server.target;
-const PORT = Number(helper.findArg('port')) || 8021;
+const PORT = Number(helper.findArg('port')) || 9001;
 const HOST = helper.findArg('host') || '127.0.0.1';
 
 const devURL = `http://${HOST}:${PORT}`;
