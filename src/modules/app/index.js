@@ -15,7 +15,7 @@ export default class extends Component {
             <Fragment>
                 <Header/>
                 <Siderbar/>
-                <Content/>
+                <Content {...this.props}/>
                 <Footer/>
             </Fragment>
         )
