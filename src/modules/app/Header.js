@@ -4,8 +4,8 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Logo from './Logo';
-import TopNav from './TopNav';
+import Logo from './nav/Logo';
+import TopNav from './nav/TopNav';
 
 export default class extends Component {
     render() {

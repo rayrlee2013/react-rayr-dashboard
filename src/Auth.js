@@ -8,7 +8,7 @@ import {Router} from 'react-router';
 
 import history from './history';
 import stores from './stores';
-import Pages from './pages';
+import Pages from './modules';
 
 window.RAYR_GLOBAL_STORES = stores;
 

@@ -3,7 +3,10 @@
  */
 
 import React, {Component, Fragment} from 'react';
-import {Header, Siderbar, Footer} from './public';
+import Header from './Header';
+import Siderbar from './Siderbar';
+import Footer from './Footer';
+import Content from './Content';
 
 export default class extends Component {
 
@@ -12,9 +15,7 @@ export default class extends Component {
             <Fragment>
                 <Header/>
                 <Siderbar/>
-                <div className="content-wrapper">
-
-                </div>
+                <Content/>
                 <Footer/>
             </Fragment>
         )

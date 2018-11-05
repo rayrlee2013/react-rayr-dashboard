@@ -4,6 +4,9 @@
 
 import React, {Component} from 'react';
 import Messages from './Messages';
+import User from './User';
+import Notifications from './Notifications';
+import Tasks from './Tasks';
 
 export default function () {
     return (
@@ -12,9 +15,15 @@ export default function () {
                 <span className="sr-only">Toggle navigation</span>
             </a>
             <div className="navbar-custom-menu">
-                <div className="nav navbar-nav">
-                    <Messages></Messages>
-                </div>
+                <ul className="nav navbar-nav">
+                    <Messages/>
+                    <Notifications/>
+                    <Tasks/>
+                    <User/>
+                    <li>
+                        <a data-toggle="control-sidebar"><i className="fa fa-gears"></i></a>
+                    </li>
+                </ul>
             </div>
         </nav>
     )
