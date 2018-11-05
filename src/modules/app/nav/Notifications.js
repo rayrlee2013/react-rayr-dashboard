@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {Toggle} from 'components';
+import {Toggle, Label, Icon} from 'components';
 
 @withRouter
 export default class extends Component {
@@ -13,8 +13,8 @@ export default class extends Component {
         return (
             <Toggle className="notifications-menu">
                 <Toggle.Top>
-                    <i className="fa fa-bell-o"></i>
-                    <span className="label label-warning">10</span>
+                    <Icon name={'bell-o'}/>
+                    <Label type={'warning'}>10</Label>
                 </Toggle.Top>
                 <Toggle.Menu>
                     <li className="header">You have 10 notifications</li>

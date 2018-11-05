@@ -3,3 +3,6 @@
  */
 
 export Toggle from './Toggle';
+
+export Label from './Label'; //标签
+export Icon from './Icon'; //标签

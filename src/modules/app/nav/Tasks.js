@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {Toggle} from 'components';
+import {Toggle, Label, Icon} from 'components';
 import {Progress} from 'chart';
 
 const TaskDemoData = [
@@ -55,8 +55,8 @@ export default class extends Component {
         return (
             <Toggle className="tasks-menu">
                 <Toggle.Top>
-                    <i className="fa fa-flag-o"></i>
-                    <span className="label label-danger">9</span>
+                    <Icon name={'flag-o'}/>
+                    <Label type={'danger'}>9</Label>
                 </Toggle.Top>
                 <Toggle.Menu>
                     <li className="header">You have 9 tasks</li>

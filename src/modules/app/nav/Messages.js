@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {Toggle} from 'components';
+import {Toggle, Label, Icon} from 'components';
 
 const MessagesDemoData = [
     {
@@ -68,8 +68,8 @@ export default class extends Component {
         return (
             <Toggle className="messages-menu">
                 <Toggle.Top>
-                    <i className="fa fa-envelope-o"></i>
-                    <span className="label label-success">4</span>
+                    <Icon name={'envelope-o'}/>
+                    <Label type={'success'}>4</Label>
                 </Toggle.Top>
                 <Toggle.Menu>
                     <li className="header">You have 4 messages</li>
