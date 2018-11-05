@@ -6,6 +6,49 @@ import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {Toggle, Label, Icon} from 'components';
 
+const demoData = [
+    {
+        id: 1,
+        content: '5 new members joined today',
+        icon: 'users',
+        color: 'aqua'
+    },
+    {
+        id: 2,
+        content: 'Very long description here that may not fit into the page and may cause design problems',
+        icon: 'warning',
+        color: 'yellow'
+    },
+    {
+        id: 3,
+        content: '5 new members joined today',
+        icon: 'users',
+        color: 'red'
+    },
+    {
+        id: 4,
+        content: '25 sales made',
+        icon: 'shopping-cart',
+        color: 'green'
+    },
+    {
+        id: 5,
+        content: 'You changed your username',
+        icon: 'user',
+        color: 'red'
+    }
+];
+
+function NotificationsItem({data}) {
+    return (
+        <li>
+            <a>
+                <Icon name={data.icon} color={data.color}/> {data.content}
+            </a>
+        </li>
+    )
+}
+
 @withRouter
 export default class extends Component {
 
@@ -20,33 +63,9 @@ export default class extends Component {
                     <li className="header">You have 10 notifications</li>
                     <li>
                         <ul className="menu">
-                            <li>
-                                <a href="#">
-                                    <i className="fa fa-users text-aqua"></i> 5 new members joined today
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i className="fa fa-warning text-yellow"></i> Very long description here that may
-                                    not fit into the
-                                    page and may cause design problems
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i className="fa fa-users text-red"></i> 5 new members joined
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i className="fa fa-shopping-cart text-green"></i> 25 sales made
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i className="fa fa-user text-red"></i> You changed your username
-                                </a>
-                            </li>
+                            {
+                                demoData.map((item) => <NotificationsItem key={item.id} data={item}/>)
+                            }
                         </ul>
                     </li>
                     <li className="footer"><a href="#">View all</a></li>

@@ -10,20 +10,24 @@ export default class extends React.Component {
 
     static propTypes = {
         name: PropTypes.string,
-        size: PropTypes.number
+        size: PropTypes.number,
+        color: PropTypes.string
     };
 
     static defaultProps = {
         name: 'default',
-        size: 14
+        size: 14,
+        color: ''
     };
 
     render() {
 
-        const _cls = classnames('fa', `fa-${this.props.name}`);
+        const {color, size, name} = this.props;
+        const _color = this.props.color ? `text-${color}` : '';
+        const _cls = classnames('fa', `fa-${name}`, _color);
 
         return (
-            <i className={_cls} style={{fontSize: `${this.props.size}px`}}></i>
+            <i className={_cls} style={{fontSize: `${size}px`}}></i>
         )
     }
 }

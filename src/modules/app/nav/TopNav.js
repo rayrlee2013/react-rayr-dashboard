@@ -3,6 +3,7 @@
  */
 
 import React, {Component} from 'react';
+import {Icon} from 'components';
 import Messages from './Messages';
 import User from './User';
 import Notifications from './Notifications';
@@ -21,7 +22,7 @@ export default function () {
                     <Tasks/>
                     <User/>
                     <li>
-                        <a data-toggle="control-sidebar"><i className="fa fa-gears"></i></a>
+                        <a data-toggle="control-sidebar"><Icon name={'gears'}/></a>
                     </li>
                 </ul>
             </div>

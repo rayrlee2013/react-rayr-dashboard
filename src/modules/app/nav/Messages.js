@@ -53,7 +53,7 @@ function MessagesItem({data}) {
                 </div>
                 <h4>
                     {data.title}
-                    <small><i className="fa fa-clock-o"></i> {data.time} mins</small>
+                    <small><Icon name={'clock-o'}/> {data.time} mins</small>
                 </h4>
                 <p>{data.breif}</p>
             </a>
