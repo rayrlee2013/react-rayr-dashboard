@@ -5,6 +5,48 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {Toggle} from 'components';
+import {Progress} from 'chart';
+
+const TaskDemoData = [
+    {
+        id: 1,
+        title: 'Design some buttons',
+        value: 76,
+        type: 'aqua'
+    },
+    {
+        id: 2,
+        title: 'Create a nice theme',
+        value: 40,
+        type: 'green'
+    },
+    {
+        id: 3,
+        title: 'Some task I need to do',
+        value: 34,
+        type: 'red'
+    },
+    {
+        id: 4,
+        title: 'Make beautiful transitions',
+        value: 80,
+        type: 'yellow'
+    }
+];
+
+function TaskItem({data}) {
+    return (
+        <li>
+            <a>
+                <h3>
+                    {data.title}
+                    <small className="pull-right">{data.value}%</small>
+                </h3>
+                <Progress size={'xs'} value={data.value} type={data.type}/>
+            </a>
+        </li>
+    )
+}
 
 @withRouter
 export default class extends Component {
@@ -21,66 +63,9 @@ export default class extends Component {
                     <li>
                         <ul className="menu">
                             <ul className="menu">
-                                <li>
-                                    <a href="#">
-                                        <h3>
-                                            Design some buttons
-                                            <small className="pull-right">20%</small>
-                                        </h3>
-                                        <div className="progress xs">
-                                            <div className="progress-bar progress-bar-aqua" style={{width: '20%'}}
-                                                 role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                 aria-valuemax="100">
-                                                <span className="sr-only">20% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3>
-                                            Create a nice theme
-                                            <small className="pull-right">40%</small>
-                                        </h3>
-                                        <div className="progress xs">
-                                            <div className="progress-bar progress-bar-green" style={{width: '40%'}}
-                                                 role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                 aria-valuemax="100">
-                                                <span className="sr-only">40% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3>
-                                            Some task I need to do
-                                            <small className="pull-right">60%</small>
-                                        </h3>
-                                        <div className="progress xs">
-                                            <div className="progress-bar progress-bar-red" style={{width: '60%'}}
-                                                 role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                 aria-valuemax="100">
-                                                <span className="sr-only">60% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3>
-                                            Make beautiful transitions
-                                            <small className="pull-right">80%</small>
-                                        </h3>
-                                        <div className="progress xs">
-                                            <div className="progress-bar progress-bar-yellow" style={{width: '80%'}}
-                                                 role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                 aria-valuemax="100">
-                                                <span className="sr-only">80% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                {
+                                    TaskDemoData.map((item) => <TaskItem key={item.id} data={item}/>)
+                                }
                             </ul>
                         </ul>
                     </li>
