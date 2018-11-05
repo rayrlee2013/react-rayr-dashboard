@@ -6,3 +6,4 @@ export Toggle from './Toggle';
 
 export Label from './Label'; //标签
 export Icon from './Icon'; //标签
+export * from './Grid'; //标签

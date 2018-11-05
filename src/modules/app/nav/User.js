@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {Toggle} from 'components';
+import {Toggle, Row, Col} from 'components';
 
 @withRouter
 export default class extends Component {
@@ -26,17 +26,17 @@ export default class extends Component {
                         </p>
                     </li>
                     <li className="user-body">
-                        <div className="row">
-                            <div className="col-xs-4 text-center">
+                        <Row>
+                            <Col xs={4} className="text-center">
                                 <a href="#">Followers</a>
-                            </div>
-                            <div className="col-xs-4 text-center">
+                            </Col>
+                            <Col xs={4} className="text-center">
                                 <a href="#">Sales</a>
-                            </div>
-                            <div className="col-xs-4 text-center">
+                            </Col>
+                            <Col xs={4} className="text-center">
                                 <a href="#">Friends</a>
-                            </div>
-                        </div>
+                            </Col>
+                        </Row>
                     </li>
                     <li className="user-footer">
                         <div className="pull-left">
