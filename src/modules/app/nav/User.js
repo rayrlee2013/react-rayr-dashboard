@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {inject, observer} from 'mobx-react';
-import {Toggle, Row, Col} from 'components';
+import {Toggle, Row, Col, Btn} from 'components';
 
 @withRouter
 @inject('UserStore')
@@ -44,10 +44,10 @@ export default class extends Component {
                     </li>
                     <li className="user-footer">
                         <div className="pull-left">
-                            <a href="#" className="btn btn-default btn-flat">Profile</a>
+                            <Btn flat={true}>Profile</Btn>
                         </div>
                         <div className="pull-right">
-                            <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                            <Btn flat={true}>Sign out</Btn>
                         </div>
                     </li>
                 </Toggle.Menu>

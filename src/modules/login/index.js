@@ -3,7 +3,7 @@
  */
 
 import React, {Component, Fragment} from 'react';
-import {Input, Glyphicon, Row, Col, Switch} from 'components';
+import {Input, Glyphicon, Row, Col, Switch, Btn} from 'components';
 
 function Footer() {
     return (
@@ -47,7 +47,8 @@ export default class extends Component {
                                 <Switch className="switch-btn">Remember Me</Switch>
                             </Col>
                             <Col xs={4}>
-                                <button type="submit" className="btn btn-primary btn-block btn-flat">Sign In</button>
+                                <Btn flat={true} type={'primary'} block={true}>Sign In</Btn>
+                                {/*<button type="submit" className="btn btn-primary btn-block btn-flat">Sign In</button>*/}
                             </Col>
                         </Row>
                         <Footer/>
