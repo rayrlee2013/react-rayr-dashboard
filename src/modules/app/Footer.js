@@ -12,10 +12,9 @@ export default class extends Component {
         return (
             <footer className="main-footer">
                 <div className="pull-right hidden-xs">
-                    <b>Version</b> 2.4.0
+                    <b>Version</b> 1.0.0
                 </div>
-                <strong>Copyright © 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-                reserved.
+                <strong>Copyright © 2018-2020 <a>heibaizhu . laohei</a>.</strong> Fe developer
             </footer>
         )
     }
