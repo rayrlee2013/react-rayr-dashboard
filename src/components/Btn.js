@@ -8,6 +8,7 @@ import classnames from 'classnames';
 
 export default class extends React.Component {
     static propTypes = {
+        className: PropTypes.string,
         type: PropTypes.oneOf(['default', 'primary', 'danger', 'info', 'warning']),
         disabled: PropTypes.oneOf([true, false]),
         size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
@@ -16,6 +17,7 @@ export default class extends React.Component {
     };
 
     static defaultProps = {
+        className: '',
         type: 'default',
         disabled: false,
         size: 'md',
@@ -34,7 +36,7 @@ export default class extends React.Component {
             <button
                 onClick={this.props.onClick}
                 disabled={this.props.disabled}
-                className={classnames('btn', _type, _size, _flat, _block)}>{this.props.children}
+                className={classnames('btn', _type, _size, _flat, _block, this.props.className)}>{this.props.children}
             </button>
         );
     }
