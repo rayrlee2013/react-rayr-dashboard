@@ -3,11 +3,13 @@
  */
 
 import React, {Component, Fragment} from 'react';
+import {AuthLogin} from 'components';
 import Header from './Header';
 import Siderbar from './Siderbar';
 import Footer from './Footer';
 import Content from './Content';
 
+@AuthLogin()
 export default class extends Component {
 
     render() {

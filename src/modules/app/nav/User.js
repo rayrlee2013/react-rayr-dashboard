@@ -4,25 +4,29 @@
 
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import {inject, observer} from 'mobx-react';
 import {Toggle, Row, Col} from 'components';
 
 @withRouter
+@inject('UserStore')
+@observer
 export default class extends Component {
 
     render() {
+        const {user} = this.props.UserStore;
         return (
             <Toggle className="user user-menu">
                 <Toggle.Top>
-                    <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" className="user-image"/>
-                    <span className="hidden-xs">Alexander Pierce</span>
+                    <img src={user.avatar} className="user-image"/>
+                    <span className="hidden-xs">{user.name}</span>
                 </Toggle.Top>
                 <Toggle.Menu>
                     <li className="user-header">
-                        <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"
+                        <img src={user.avatar}
                              className="img-circle"/>
                         <p>
-                            Alexander Pierce - Web Developer
-                            <small>Member since Nov. 2012</small>
+                            {user.name} - {user.job}
+                            <small>{user.date}</small>
                         </p>
                     </li>
                     <li className="user-body">

@@ -4,6 +4,8 @@
 
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import UserPanel from './aside/UserPanel';
+import Search from './aside/Search';
 
 @withRouter
 export default class extends Component {
@@ -12,16 +14,8 @@ export default class extends Component {
         return (
             <aside className="main-sidebar">
                 <section className="sidebar" style={{height: 'auto'}}>
-                    <div className="user-panel">
-                        <div className="pull-left image">
-                            <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg"
-                                 className="img-circle" alt="User Image"/>
-                        </div>
-                        <div className="pull-left info">
-                            <p>Alexander Pierce</p>
-                            <a><i className="fa fa-circle text-success"></i> Online</a>
-                        </div>
-                    </div>
+                    <UserPanel/>
+                    <Search/>
                 </section>
             </aside>
         )

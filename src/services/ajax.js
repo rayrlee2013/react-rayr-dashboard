@@ -5,10 +5,26 @@
 import axios from 'axios';
 import $_url from './url';
 
-axios.defaults.headers.common['clientType'] = 0;
-
 export default {
     post(url, params = {}) {
 
+    },
+    get(url, params = {}) {
+        return new Promise((resolve, reject) => {
+            axios.get(`/api/${url}`, {params}).then((res) => {
+                if (res.status === 200) {
+                    if (res.data.errno === 100000) {
+                        resolve(res.data.data);
+                    } else {
+                        reject(res.data);
+                    }
+                } else {
+                    console.warn(`请求异常，状态码为：${res.status}`);
+                    reject(`GET请求, 状态码为: ${res.status}`);
+                }
+            }).catch((err) => {
+                reject(err);
+            });
+        });
     }
 }

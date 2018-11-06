@@ -5,6 +5,7 @@
 import React, {Component} from 'react';
 import {Provider} from 'mobx-react';
 import {Router} from 'react-router';
+import {$_ajax} from 'services';
 
 import history from './history';
 import stores from './stores';
@@ -17,12 +18,20 @@ export default class extends Component {
     constructor() {
         super();
         this.state = {
-            isAuth: true
+            isAuth: false
         };
     }
 
     componentWillMount() {
+        $_ajax.get('userinfo').then((res) => {
+            RAYR_GLOBAL_STORES.UserStore.initUser(res);
+        }, () => {
 
+        }).finally(() => {
+            this.setState({
+                isAuth: true
+            });
+        });
     }
 
     render() {

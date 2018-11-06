@@ -12,6 +12,8 @@ import compression from 'compression';
 import chalk from 'chalk';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import mockMiddleware from './mock';
+
 import webpackConfig from '../conf/webpack.dev';
 
 const helper = require('./helper');
@@ -31,6 +33,7 @@ const compiler = webpack(webpackConfig);
 const app = express();
 
 app.use(compression());
+app.use(require('./middleware/output'));
 app.use(webpackDevMiddleware(compiler, {
     noInfo: false,
     publicPath: webpackConfig.output.publicPath,
@@ -51,6 +54,8 @@ app.use(webpackDevMiddleware(compiler, {
     }
 }));
 app.use(webpackHotMiddleware(compiler));
+
+mockMiddleware(app);
 
 app.get('*', (req, res, next) => {
     const filename = path.join(compiler.outputPath, 'index.html');
