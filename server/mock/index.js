@@ -4,12 +4,14 @@
 
 export default function (app) {
     app.get('/api/userinfo', (req, res) => {
-        res.apiSuccess({
-            name: 'Alexander Pierce',
-            job: 'Web Developer',
-            date: 'Member since Nov. 2012',
-            avatar: 'https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg',
-            status: 1
-        });
+        res.apiSuccess(require('./userinfo'));
+    });
+
+    app.get('/api/messages', (req, res) => {
+        res.apiSuccess(require('./messages'));
+    });
+
+    app.get('/api/notifications', (req, res) => {
+        res.apiSuccess(require('./notifications'));
     });
 };

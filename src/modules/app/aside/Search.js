@@ -9,7 +9,7 @@ export default function () {
     return (
         <form className="sidebar-form">
             <div className="input-group">
-                <Input placeholder="Search..." name="q" onChange={(value) => {
+                <Input placeholder="Search..." autocomplete="off" name="q" onChange={(value) => {
                     console.log(value);
                 }}/>
                 <span className="input-group-btn">

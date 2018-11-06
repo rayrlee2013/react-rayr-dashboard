@@ -5,44 +5,7 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {Toggle, Label, Icon} from 'components';
-
-const MessagesDemoData = [
-    {
-        id: 1,
-        title: 'Support Team',
-        breif: 'Why not buy a new awesome theme?',
-        avatar: 'user2-160x160.jpg',
-        time: '5'
-    },
-    {
-        id: 2,
-        title: 'Design Team',
-        breif: 'Why not buy a new awesome theme?',
-        avatar: 'user3-128x128.jpg',
-        time: '1'
-    },
-    {
-        id: 3,
-        title: 'Developers',
-        breif: 'Why not buy a new awesome theme?',
-        avatar: 'user4-128x128.jpg',
-        time: '4'
-    },
-    {
-        id: 4,
-        title: 'Sales Department',
-        breif: 'Why not buy a new awesome theme?',
-        avatar: 'user3-128x128.jpg',
-        time: '1'
-    },
-    {
-        id: 5,
-        title: 'Developers',
-        breif: 'Why not buy a new awesome theme?',
-        avatar: 'user4-128x128.jpg',
-        time: '4'
-    }
-];
+import {$_ajax} from 'services';
 
 function MessagesItem({data}) {
     return (
@@ -64,19 +27,35 @@ function MessagesItem({data}) {
 @withRouter
 export default class extends Component {
 
+    constructor() {
+        super()
+        this.state = {
+            messages: []
+        };
+    }
+
+    componentWillMount() {
+        $_ajax.get('messages').then((res) => {
+            this.setState({
+                messages: res
+            });
+        });
+    }
+
     render() {
+        const {messages} = this.state;
         return (
             <Toggle className="messages-menu">
                 <Toggle.Top>
                     <Icon name={'envelope-o'}/>
-                    <Label type={'success'}>4</Label>
+                    <Label type={'success'}>{messages.length}</Label>
                 </Toggle.Top>
                 <Toggle.Menu>
-                    <li className="header">You have 4 messages</li>
+                    <li className="header">You have {messages.length} messages</li>
                     <li>
                         <ul className="menu">
                             {
-                                MessagesDemoData.map((item) => <MessagesItem key={item.id} data={item}/>)
+                                messages.map((item) => <MessagesItem key={item.id} data={item}/>)
                             }
                         </ul>
                     </li>
