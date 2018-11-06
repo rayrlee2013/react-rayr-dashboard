@@ -5,34 +5,9 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {Toggle, Label, Icon} from 'components';
+import {$_ajax} from 'services';
 import {Progress} from 'chart';
 
-const TaskDemoData = [
-    {
-        id: 1,
-        title: 'Design some buttons',
-        value: 76,
-        type: 'aqua'
-    },
-    {
-        id: 2,
-        title: 'Create a nice theme',
-        value: 40,
-        type: 'green'
-    },
-    {
-        id: 3,
-        title: 'Some task I need to do',
-        value: 34,
-        type: 'red'
-    },
-    {
-        id: 4,
-        title: 'Make beautiful transitions',
-        value: 80,
-        type: 'yellow'
-    }
-];
 
 function TaskItem({data}) {
     return (
@@ -51,12 +26,28 @@ function TaskItem({data}) {
 @withRouter
 export default class extends Component {
 
+    constructor() {
+        super()
+        this.state = {
+            tasks: []
+        };
+    }
+
+    componentWillMount() {
+        $_ajax.get('tasks').then((res) => {
+            this.setState({
+                tasks: res
+            });
+        });
+    }
+
     render() {
+        const {tasks} = this.state;
         return (
             <Toggle className="tasks-menu">
                 <Toggle.Top>
                     <Icon name={'flag-o'}/>
-                    <Label type={'danger'}>9</Label>
+                    <Label type={'danger'}>{tasks.length}</Label>
                 </Toggle.Top>
                 <Toggle.Menu>
                     <li className="header">You have 9 tasks</li>
@@ -64,7 +55,7 @@ export default class extends Component {
                         <ul className="menu">
                             <ul className="menu">
                                 {
-                                    TaskDemoData.map((item) => <TaskItem key={item.id} data={item}/>)
+                                    tasks.map((item) => <TaskItem key={item.id} data={item}/>)
                                 }
                             </ul>
                         </ul>

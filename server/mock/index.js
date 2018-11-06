@@ -14,4 +14,8 @@ export default function (app) {
     app.get('/api/notifications', (req, res) => {
         res.apiSuccess(require('./notifications'));
     });
+
+    app.get('/api/tasks', (req, res) => {
+        res.apiSuccess(require('./tasks'));
+    });
 };
