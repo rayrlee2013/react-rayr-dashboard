@@ -1,5 +1,5 @@
 /**
- * Created by Rayr Lee on 2018/11/2.
+ * Created by Rayr Lee on 2018/11/6.
  */
 
 import React from 'react';
@@ -17,13 +17,11 @@ export default class extends React.Component {
     };
 
     render() {
-
         return (
-            <input type="text" {...this.props}
-                   className={classnames('form-control', this.props.className)}
-                   onChange={(e) => {
-                       this.props.onChange && this.props.onChange(e.target.value, e);
-                   }}/>
+            <div className={classnames('rayr-switch-icheck', this.props.className)}>
+                <span></span>
+                <label>{this.props.children}</label>
+            </div>
         )
     }
 }

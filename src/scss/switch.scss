@@ -1,0 +1,29 @@
+/**
+ * Created by Rayr Lee on 2018/11/6.
+ */
+
+.rayr-switch-icheck {
+    position: relative;
+    display: inline-flex;
+    align-content: center;
+    height: 24px;
+    span {
+        width: 24px;
+        height: 24px;
+        border: 1px solid #d2d6de;
+        cursor: pointer;
+        transition: all .2s;
+        box-sizing: border-box;
+        &:hover {
+            border-width: 2px;
+            border-color: #3c8dbc;
+        }
+    }
+    label {
+        margin: 0;
+        font-weight: normal;
+        color: #777;
+        font-size: 14px;
+        margin-left: 8px;
+    }
+}

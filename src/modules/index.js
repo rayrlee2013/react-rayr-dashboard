@@ -9,6 +9,7 @@ export default class extends Component {
         return [
             <Switch key={'Switch'}>
                 <Route path="/app" component={require('./app')}/>
+                <Route path="/login" component={require('./login')}/>
                 <Route component={() => (
                     <Redirect push to="/app"/>
                 )}/>
