@@ -8,7 +8,7 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 export default ({match}) => {
     return (
         <Switch>
-            <Route path={`${match.url}/dashboard`} component={require('./pages/Dashboard')}/>
+            <Route path={`${match.url}/dashboard`} component={require('./pages/Widgets')}/>
             <Route component={() => (
                 <Redirect push to="/app/dashboard"/>
             )}/>

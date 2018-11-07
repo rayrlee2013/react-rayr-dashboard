@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import UserPanel from './aside/UserPanel';
 import Search from './aside/Search';
+import Menu from './aside/Menu';
 
 @withRouter
 export default class extends Component {
@@ -16,6 +17,7 @@ export default class extends Component {
                 <section className="sidebar" style={{height: 'auto'}}>
                     <UserPanel/>
                     <Search/>
+                    <Menu/>
                 </section>
             </aside>
         )
