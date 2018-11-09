@@ -18,4 +18,8 @@ export default function (app) {
     app.get('/api/tasks', (req, res) => {
         res.apiSuccess(require('./tasks'));
     });
+
+    app.get('/api/menus', (req, res) => {
+        res.apiSuccess(require('./menus'));
+    });
 };
