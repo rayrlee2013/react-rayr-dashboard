@@ -1,5 +1,5 @@
 /**
- * Created by Rayr Lee on 2017/2/8.
+ * Created by Rayr Lee on 2018/11/9.
  */
 
 import axios from 'axios';
@@ -7,15 +7,10 @@ import axios from 'axios';
 export default {
     get(url, params = {}) {
         return new Promise((resolve, reject) => {
-            axios.get(`/api/${url}`, {params}).then((res) => {
+            axios.get(`/github/${url}`, {params}).then((res) => {
                 if (res.status === 200) {
-                    if (res.data.errno === 100000) {
-                        resolve(res.data.data);
-                    } else {
-                        reject(res.data);
-                    }
+                    resolve(res.data);
                 } else {
-                    console.warn(`请求异常，状态码为：${res.status}`);
                     reject(`GET请求, 状态码为: ${res.status}`);
                 }
             }).catch((err) => {

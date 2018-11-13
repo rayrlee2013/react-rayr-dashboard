@@ -55,6 +55,8 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
+app.use('/github', proxy(require('./middleware/github')));
+
 mockMiddleware(app);
 
 app.get('*', (req, res, next) => {

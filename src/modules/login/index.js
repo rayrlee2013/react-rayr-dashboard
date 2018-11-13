@@ -4,6 +4,7 @@
 
 import React, {Component, Fragment} from 'react';
 import {Input, Glyphicon, Row, Col, Switch, Btn} from 'components';
+import {$_http} from 'services';
 
 function Footer() {
     return (
@@ -25,6 +26,13 @@ function Footer() {
 }
 
 export default class extends Component {
+
+    componentWillMount() {
+        $_http.get('users/rayrlee2013/repos').then((res) => {
+            console.log(res);
+        });
+    }
+
     render() {
         return (
             <div className="login-page">
