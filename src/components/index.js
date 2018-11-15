@@ -12,6 +12,6 @@ export Input from './Input'; //标签
 export Switch from './Switch';
 export Btn from './Btn';
 export Box from './Box';
-
+export NavLink from './NavLink';
 //业务
 export AuthLogin from './AuthLogin'; //标签

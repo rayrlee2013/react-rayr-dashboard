@@ -6,16 +6,17 @@ import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import {Icon, Input} from 'components';
 import {Link, withRouter} from 'react-router-dom';
+import {NavLink} from 'components';
 
 class MenuItem extends Component {
     render() {
-        const {data} = this.props;
+        const {data, pathname} = this.props;
         return (
             <li>
-                <Link to={{pathname: '/app/dashboard'}}>
+                <NavLink to={{pathname: `/app/${data.url}`}} nPath={pathname}>
                     <Icon name={data.icon || 'circle-o'}/>
                     <span>{data.name}</span>
-                </Link>
+                </NavLink>
             </li>
         )
     }
@@ -23,7 +24,7 @@ class MenuItem extends Component {
 
 class Menu extends Component {
     render() {
-        const {data} = this.props;
+        const {data, pathname} = this.props;
         return (
             <li className="treeview">
                 <a>
@@ -37,7 +38,7 @@ class Menu extends Component {
                     {
                         data.children.map(item => {
                             return (
-                                <MenuItem key={item.id} data={item}/>
+                                <MenuItem key={item.id} data={item} pathname={pathname}/>
                             )
                         })
                     }
@@ -47,21 +48,24 @@ class Menu extends Component {
     }
 }
 
+@withRouter
 @inject('MenuStore')
 @observer
 export default class extends Component {
+
     render() {
         const {menu} = this.props.MenuStore;
+        const {pathname} = this.props.location;
 
         return (
-            <ul className="sidebar-menu" data-widget="tree">
+            <ul className="sidebar-menu rayr-sidebar-menu" data-widget="tree">
                 <li className="header">MAIN NAVIGATION</li>
                 {
                     menu.map((item) => {
                         if (item.isLeaf) {
-                            return <MenuItem key={item.id} data={item}/>
+                            return <MenuItem key={item.id} data={item} pathname={pathname}/>
                         } else {
-                            return <Menu key={item.id} data={item}/>;
+                            return <Menu key={item.id} data={item} pathname={pathname}/>;
                         }
                     })
                 }

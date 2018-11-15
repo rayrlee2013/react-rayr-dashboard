@@ -13,9 +13,7 @@ export default () => C => {
     class AuthComponent extends Component {
         render() {
             const {isLogin} = this.props.UserStore;
-            console.log(isLogin)
             return isLogin ? <C {...this.props} /> : <Redirect push to="/login"/>;
-
         }
     }
 
