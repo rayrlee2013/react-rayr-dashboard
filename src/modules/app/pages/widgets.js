@@ -14,7 +14,7 @@ export default () => {
             <Col md={12}>
                 <Box widget={true}>
                     <Header border={true}>
-                        <h3 className="box-title">Monthly Recap Report</h3>
+                        <h3 className="box-title">组件元件</h3>
                     </Header>
                     <Body>
                         Is this template really for free? That's unbelievable!

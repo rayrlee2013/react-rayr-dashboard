@@ -18,7 +18,7 @@ export default class extends Component {
                          className="img-circle" alt="User Image"/>
                 </div>
                 <div className="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{user.name}</p>
                     <a><Icon name={'circle'} color={'success'}/> Online</a>
                 </div>
             </div>
