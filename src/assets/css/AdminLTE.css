@@ -763,6 +763,7 @@ a:focus {
     box-shadow: 3px 0 8px rgba(0, 0, 0, 0.125);
 }
 
+.treeview-menu
 .sidebar-menu,
 .main-sidebar .user-panel,
 .sidebar-menu > li.header {
@@ -3671,7 +3672,7 @@ table.text-center th {
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-left: 5px;
+    padding-left: 3px;
 }
 
 .treeview-menu .treeview-menu {
