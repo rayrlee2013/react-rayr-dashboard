@@ -14,7 +14,7 @@ class MenuItem extends Component {
             <li>
                 <Link to={{pathname: '/app/dashboard'}}>
                     <Icon name={data.icon || 'circle-o'}/>
-                    {data.name}
+                    <span>{data.name}</span>
                 </Link>
             </li>
         )
