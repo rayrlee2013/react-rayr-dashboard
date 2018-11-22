@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 import {Provider} from 'mobx-react';
 import {Router} from 'react-router';
 import {$_ajax} from 'services';
+import {HomeLoading} from 'components';
 
 import history from './history';
 import stores from './stores';
@@ -40,8 +41,6 @@ export default class extends Component {
             <Provider {...stores}>
                 <Router history={history}><Pages/></Router>
             </Provider>
-        ) : (
-            <span>加载中...</span>
-        );
+        ) : <HomeLoading/>;
     }
 }
