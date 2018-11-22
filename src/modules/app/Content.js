@@ -13,7 +13,7 @@ export default function (props) {
             <section className="content-header">
                 <h1>
                     Dashboard
-                    <small>Control panel</small>
+                    <small>Version React</small>
                 </h1>
                 <ol className="breadcrumb">
                     <li><a href="#"><Icon name={'dashboard'}></Icon> Home</a></li>
