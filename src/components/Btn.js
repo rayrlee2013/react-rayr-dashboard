@@ -30,7 +30,7 @@ export default class extends React.Component {
         let _type = `btn-${this.props.type}`,
             _size = this.props.type !== 'md' ? `btn-${this.props.size}` : '',
             _flat = this.props.flat ? `btn-flat` : '',
-            _block = this.props.flat ? `btn-block` : '';
+            _block = this.props.block ? `btn-block` : '';
 
         return (
             <button

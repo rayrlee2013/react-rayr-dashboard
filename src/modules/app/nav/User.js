@@ -44,7 +44,9 @@ export default class extends Component {
                     </li>
                     <li className="user-footer">
                         <div className="pull-left">
-                            <Abtn href="/login" flat={true}>Profile</Abtn>
+                            <Btn flat={true} onClick={() => {
+                                this.props.history.push('/app/profile');
+                            }}>Profile</Btn>
                         </div>
                         <div className="pull-right">
                             <Abtn href="/login" flat={true}>Sign out</Abtn>

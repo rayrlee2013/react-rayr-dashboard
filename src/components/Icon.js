@@ -24,7 +24,7 @@ export default class extends React.Component {
 
         const {color, size, name} = this.props;
         const _color = this.props.color ? `text-${color}` : '';
-        const _cls = classnames('fa', `fa-${name}`, _color);
+        const _cls = classnames('fa', `fa-${name}`, _color, this.props.className);
 
         return (
             <i className={_cls} style={{fontSize: `${size}px`}}></i>

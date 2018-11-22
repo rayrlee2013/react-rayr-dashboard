@@ -10,6 +10,7 @@ export default ({match}) => {
         <Switch>
             <Route path={`${match.url}/dashboard`} component={require('./pages/dashboard')}/>
             <Route path={`${match.url}/widgets`} component={require('./pages/widgets')}/>
+            <Route path={`${match.url}/profile`} component={require('./pages/profile')}/>
             <Route component={() => (
                 <Redirect push to="/app/dashboard"/>
             )}/>
