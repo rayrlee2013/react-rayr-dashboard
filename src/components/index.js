@@ -13,6 +13,7 @@ export * from './Grid'; //栅格化
 export Input from './Input'; //标签
 export Switch from './Switch';
 export Btn from './Btn';
+export Abtn from './Abtn'; //链接按钮
 export Box from './Box';
 export NavLink from './NavLink';
 //业务

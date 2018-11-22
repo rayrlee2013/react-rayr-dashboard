@@ -28,7 +28,7 @@ class Menu extends Component {
         return (
             <li className="treeview">
                 <a>
-                    <Icon name="laptop"/>
+                    <Icon name={data.icon}/>
                     <span>{data.name}</span>
                     <span className="pull-right-container">
                         <Icon name="angle-left" className="pull-right"/>
