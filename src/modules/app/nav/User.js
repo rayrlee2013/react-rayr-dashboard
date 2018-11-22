@@ -44,14 +44,10 @@ export default class extends Component {
                     </li>
                     <li className="user-footer">
                         <div className="pull-left">
-                            <Abtn to={{
-                                pathname: '/login'
-                            }} flat={true}>Profile</Abtn>
+                            <Abtn href="/login" flat={true}>Profile</Abtn>
                         </div>
                         <div className="pull-right">
-                            <Abtn to={{
-                                pathname: '/login'
-                            }} flat={true}>Sign out</Abtn>
+                            <Abtn href="/login" flat={true}>Sign out</Abtn>
                         </div>
                     </li>
                 </Toggle.Menu>

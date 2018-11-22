@@ -5,7 +5,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {Link} from 'react-router-dom';
 
 export default class extends React.Component {
     static propTypes = {
@@ -32,10 +31,10 @@ export default class extends React.Component {
             _block = this.props.flat ? `btn-block` : '';
 
         return (
-            <Link
-                to={this.props.to}
+            <a
+                href={this.props.href}
                 className={classnames('btn', _type, _size, _flat, _block, this.props.className)}>{this.props.children}
-            </Link>
+            </a>
         );
     }
 };
