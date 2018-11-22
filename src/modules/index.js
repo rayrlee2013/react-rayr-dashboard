@@ -6,14 +6,14 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 
 export default class extends Component {
     render() {
-        return [
-            <Switch key={'Switch'}>
+        return (
+            <Switch>
                 <Route path="/app" component={require('./app')}/>
                 <Route path="/login" component={require('./login')}/>
                 <Route component={() => (
                     <Redirect push to="/app"/>
                 )}/>
             </Switch>
-        ]
+        )
     }
 }
