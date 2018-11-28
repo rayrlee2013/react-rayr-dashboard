@@ -99,6 +99,7 @@ body {
 }
 
 .content-wrapper {
+    margin-top: 50px;
     min-height: 100%;
     background-color: #ecf0f5;
     z-index: 800;
@@ -214,7 +215,10 @@ a:focus {
  * ----------------------
  */
 .main-header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     max-height: 100px;
     z-index: 1030;
 }
@@ -480,7 +484,7 @@ a:focus {
  * ------------------
  */
 .main-sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     padding-top: 50px;

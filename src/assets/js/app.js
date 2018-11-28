@@ -610,15 +610,15 @@ if (typeof jQuery === 'undefined') {
         // Set the min-height of the content and sidebar based on
         // the height of the document.
         if ($('body').hasClass(ClassName.fixed)) {
-            $(Selector.contentWrapper).css('min-height', windowHeight - footerHeight);
+            $(Selector.contentWrapper).css('min-height', windowHeight - footerHeight - 50);
         } else {
             var postSetHeight;
 
             if (windowHeight >= sidebarHeight) {
-                $(Selector.contentWrapper).css('min-height', windowHeight - neg);
+                $(Selector.contentWrapper).css('min-height', windowHeight - neg - 50);
                 postSetHeight = windowHeight - neg;
             } else {
-                $(Selector.contentWrapper).css('min-height', sidebarHeight);
+                $(Selector.contentWrapper).css('min-height', sidebarHeight - 50);
                 postSetHeight = sidebarHeight;
             }
 
@@ -626,7 +626,7 @@ if (typeof jQuery === 'undefined') {
             var $controlSidebar = $(Selector.controlSidebar);
             if (typeof $controlSidebar !== 'undefined') {
                 if ($controlSidebar.height() > postSetHeight)
-                    $(Selector.contentWrapper).css('min-height', $controlSidebar.height());
+                    $(Selector.contentWrapper).css('min-height', $controlSidebar.height() - 50);
             }
         }
     };

@@ -10,7 +10,7 @@ import {HomeLoading} from 'components';
 
 import history from './history';
 import stores from './stores';
-import Pages from './modules';
+import Pages from './pages';
 
 window.RAYR_GLOBAL_STORES = stores;
 
