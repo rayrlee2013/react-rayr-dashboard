@@ -43,6 +43,15 @@ const webpackConfig = {
                         options: {
                             plugins: ['react-hot-loader/babel']
                         }
+                    },
+                    {
+                        loader: path.resolve(__dirname, './loader/lazyloader'),
+                        options: {
+                            loading: {
+                                name: 'ComponentLoading',
+                                path: 'components'
+                            }
+                        }
                     }
                 ]
             },

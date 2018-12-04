@@ -2,6 +2,8 @@
  * Created by Rayr Lee on 2018/11/1.
  */
 
+export ComponentLoading from './ComponentLoading';
+
 export HomeLoading from './HomeLoading';
 
 export Toggle from './Toggle';
