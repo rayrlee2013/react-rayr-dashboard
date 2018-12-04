@@ -2,7 +2,6 @@
  * Created by Rayr Lee on 2018/11/2.
  */
 
-/* COMPONENTS LAZY LOADER TEMPLATE */
 import React, {Component} from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 

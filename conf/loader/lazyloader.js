@@ -3,7 +3,6 @@ const path = require('path');
 const loaderUtils = require('loader-utils');
 
 const importReg = /require(\S*)\(('|")lazy\|(\S*)('|")\)/g;
-const improtFlag = /\/\* COMPONENTS LAZY LOADER TEMPLATE \*\//;
 
 let insertTemp = false;
 
@@ -14,7 +13,7 @@ module.exports = function (content) {
         content = 'import Loadable from "react-loadable";\n' + content + '\nwindow.Loadable = Loadable;';
     }
 
-    if (!improtFlag.test(content)) {
+    if (!importReg.test(content)) {
         return content;
     }
 
@@ -35,6 +34,5 @@ module.exports = function (content) {
     } catch (error) {
         console.error(error);
     }
-    console.log(content.join('\n'));
     return content.join('\n');
 }
