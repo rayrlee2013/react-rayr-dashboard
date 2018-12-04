@@ -2,12 +2,43 @@
  * Created by Rayr Lee on 2018/11/5.
  */
 
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {Box, Row, Col} from 'components';
 
 const {Header, Body} = Box;
 
+function getSize() {
+    return {
+        innerHeight: window.innerHeight,
+        innerWidth: window.innerWidth,
+        outerHeight: window.outerHeight,
+        outerWidth: window.outerWidth
+    };
+}
+
+function useWindowSize() {
+    console.log(useState);
+    let [windowSize, setWindowSize] = useState(getSize());
+
+    function handleResize() {
+        setWindowSize(getSize());
+    }
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    return windowSize;
+}
+
 export default () => {
+
+    //const windowSize = useWindowSize();
+
+    console.log(useState);
 
     return (
         <Row>

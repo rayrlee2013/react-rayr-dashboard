@@ -45,7 +45,7 @@ const webpackConfig = {
                         }
                     },
                     {
-                        loader: path.resolve(__dirname, './loader/lazyloader'),
+                        loader: 'react-lazyload-loader',
                         options: {
                             loading: {
                                 name: 'ComponentLoading',
