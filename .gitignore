@@ -7,3 +7,4 @@ rev
 *.map
 *.rb
 *.DS_Store
+build

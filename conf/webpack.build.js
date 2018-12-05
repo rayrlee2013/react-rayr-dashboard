@@ -8,7 +8,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const HappyPack = require('happypack');
 const {assign} = Object;
@@ -109,7 +108,20 @@ module.exports = {
         }),
         new HappyPack(assign(HAPPY_CONF, {
             id: 'babel',
-            loaders: ['babel-loader']
+            loaders: [
+                {
+                    loader: 'babel-loader'
+                },
+                {
+                    loader: 'react-lazyload-loader',
+                    options: {
+                        loading: {
+                            name: 'ComponentLoading',
+                            path: 'components'
+                        }
+                    }
+                }
+            ]
         })),
         new HappyPack(assign(HAPPY_CONF, {
             id: 'css',
@@ -148,11 +160,14 @@ module.exports = {
             },
             canPrint: true
         }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
         new HtmlWebpackPlugin({
             template: './index.html',
             filename: path.resolve(__dirname, '../build/index.html'),
             inject: 'body'
-        }),
-        new BundleAnalyzerPlugin()
+        })
     ]
 };
