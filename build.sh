@@ -11,6 +11,7 @@ else
 fi
 
 cd /home/fedev/www/$project
+rm -rf build
 git remote -v
 git pull
 git branch
@@ -30,6 +31,6 @@ else
     echo "${project}已经存在"
 fi
 
-mv /home/fedev/www/$project/build/v_$ver.zip /home/fedev/www/static_zip/$project/
+mv /home/fedev/www/$project/v_$ver.zip /home/fedev/www/static_zip/$project/
 
 echo "${project} v_${ver} 构建完成！"
