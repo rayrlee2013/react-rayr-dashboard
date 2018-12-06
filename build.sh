@@ -11,7 +11,6 @@ else
 fi
 
 cd /home/fedev/www/$project
-rm -rf build
 git remote -v
 git pull
 git branch
@@ -21,6 +20,7 @@ npm run build
 echo "打包完成"
 
 zip -r v_$ver.zip build
+rm -rf build
 
 cd /home/fedev/www/static_zip
 
@@ -28,7 +28,7 @@ if [ ! -d $project ];then
     echo "创建${project}项目"
     mkdir $project
 else
-    echo "${project}已经存在"
+    echo "${project}项目存在"
 fi
 
 mv /home/fedev/www/$project/v_$ver.zip /home/fedev/www/static_zip/$project/
