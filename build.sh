@@ -24,12 +24,12 @@ zip -r v_$ver.zip build
 cd /home/fedev/www/static_zip
 
 if [ ! -d $project ];then
-    echo "创建${$project}项目"
+    echo "创建${project}项目"
     mkdir $project
 else
-    echo "${$project}已经存在"
+    echo "${project}已经存在"
 fi
 
 mv /home/fedev/www/$project/build/v_$ver.zip /home/fedev/www/static_zip/$project/
 
-echo "${$project} v_${$ver} 构建完成！"
+echo "${project} v_${ver} 构建完成！"
