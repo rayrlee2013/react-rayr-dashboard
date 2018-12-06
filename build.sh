@@ -28,7 +28,7 @@ if [ ! -d $project ];then
     echo "创建${project}项目"
     mkdir $project
 else
-    echo "${project}项目存在"
+    echo "${project} 项目存在"
 fi
 
 mv /home/fedev/www/$project/v_$ver.zip /home/fedev/www/static_zip/$project/
