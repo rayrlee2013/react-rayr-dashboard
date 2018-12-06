@@ -18,9 +18,6 @@ function Footer() {
                     className="fa fa-google-plus"></i> Sign in using
                     Google+</a>
             </div>
-            <a href="#">I forgot my password</a>
-            <br/>
-            <a href="register.html" className="text-center">Register a new membership</a>
         </div>
     )
 }
