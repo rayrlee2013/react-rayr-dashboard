@@ -57,6 +57,11 @@ app.use(webpackHotMiddleware(compiler));
 
 app.use('/github', proxy(require('./middleware/github')));
 
+app.use('/v2/movie', proxy({
+    target: 'https://api.douban.com',
+    changeOrigin: true
+}));
+
 mockMiddleware(app);
 
 app.get('*', (req, res, next) => {

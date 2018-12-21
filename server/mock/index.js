@@ -22,4 +22,8 @@ export default function (app) {
     app.get('/api/menus', (req, res) => {
         res.apiSuccess(require('./menus'));
     });
+
+    app.get('/api/data', (req, res) => {
+        res.apiSuccess(require('./data'));
+    });
 };

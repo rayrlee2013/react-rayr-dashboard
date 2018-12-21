@@ -26,7 +26,7 @@ module.exports = {
         path: path.resolve(__dirname, '../build'),
         filename: 'js/[name].[chunkhash:6].js',
         chunkFilename: 'js/[name].[chunkhash:6].js',
-        publicPath: '/'
+        publicPath: '/peiqi/'
     },
     resolve: {
         modules: [path.resolve(__dirname, '../src'), 'node_modules'],
