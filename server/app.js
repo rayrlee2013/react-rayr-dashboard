@@ -62,6 +62,11 @@ app.use('/v2/movie', proxy({
     changeOrigin: true
 }));
 
+app.use('/iot', proxy({
+    target: 'http://10.109.0.59:10000',
+    changeOrigin: true
+}));
+
 mockMiddleware(app);
 
 app.get('*', (req, res, next) => {

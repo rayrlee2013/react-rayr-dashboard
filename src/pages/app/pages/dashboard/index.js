@@ -11,9 +11,9 @@ import List from './list';
 
 export default class extends Component {
 
-    constructor() {
-        super()
-        console.log('2018');
+    constructor(props) {
+        super(props)
+        console.log(props);
     }
 
     render() {

@@ -18,6 +18,8 @@ export Btn from './Btn';
 export Abtn from './Abtn'; //链接按钮
 export Box from './Box';
 export NavLink from './NavLink';
-export Datasource from './Datasource'; //标签
+export Datasource from './Datasource'; //测试
+export Datafetch from './Datafetch'; //测试
+
 //业务
 export AuthLogin from './AuthLogin'; //标签

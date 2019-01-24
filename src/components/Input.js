@@ -22,7 +22,7 @@ export default class extends React.Component {
             <input type="text" {...this.props}
                    className={classnames('form-control', this.props.className)}
                    onChange={(e) => {
-                       this.props.onChange && this.props.onChange(e.target.value, e);
+                       this.props.onChange && this.props.onChange(e);
                    }}/>
         )
     }
