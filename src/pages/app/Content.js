@@ -4,6 +4,7 @@
 
 import React, {Component} from 'react';
 import {Icon} from 'components';
+
 import Router from './Router';
 
 export default class extends Component {

@@ -3,13 +3,15 @@
  */
 
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
 import UserPanel from './aside/UserPanel';
 import Search from './aside/Search';
 import Menu from './aside/Menu';
 
-@withRouter
 export default class extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return false;
+    }
 
     render() {
         return (

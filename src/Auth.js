@@ -28,7 +28,7 @@ export default class extends Component {
             this.setState({
                 isAuth: true
             });
-        })
+        });
     }
 
     render() {

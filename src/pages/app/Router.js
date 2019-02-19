@@ -6,12 +6,6 @@ import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
 export default class extends React.Component {
-
-    constructor() {
-        super();
-        console.log('Router');
-    }
-
     render() {
         const {match} = this.props;
         return (

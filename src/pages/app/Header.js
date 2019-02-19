@@ -3,11 +3,15 @@
  */
 
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import Logo from './nav/Logo';
 import TopNav from './nav/TopNav';
 
 export default class extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return false;
+    }
+
     render() {
         return (
             <header className="main-header">
