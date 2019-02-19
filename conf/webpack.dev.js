@@ -98,12 +98,16 @@ const webpackConfig = {
     devtool: 'source-map',
     optimization: {
         splitChunks: {
-            chunks: 'initial',
-            minChunks: 1,
-            automaticNameDelimiter: '_',
-            maxInitialRequests: Infinity,
-            maxAsyncRequests: 5,
-            minSize: 30000
+            cacheGroups: {
+                base: {
+                    chunks: 'initial',
+                    name: 'base',
+                    minChunks: 1,
+                    minSize: 30000,
+                    maxAsyncRequests: 5,
+                    maxInitialRequests: Infinity
+                }
+            }
         }
     },
     plugins: [

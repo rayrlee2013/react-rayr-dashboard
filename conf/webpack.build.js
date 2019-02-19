@@ -117,7 +117,9 @@ module.exports = {
                     chunks: 'initial',
                     name: 'base',
                     minChunks: 1,
-                    minSize: 30000
+                    minSize: 30000,
+                    maxAsyncRequests: 5,
+                    maxInitialRequests: Infinity
                 }
             }
         }
