@@ -3,21 +3,24 @@
  */
 
 import React, {Component} from 'react';
-import {Box, Row, Col, Btn} from 'components';
+import {Box, Row, Col, Btn, Datasource} from 'components';
 
 const {Header, Body} = Box;
 
 import List from './list';
 
+@Datasource({
+    url: 'devices/overview/status/statistics'
+})
 export default class extends Component {
 
     constructor(props) {
         super(props)
-        console.log(props);
     }
 
     render() {
-        const {history} = this.props;
+        const {history, sourceData} = this.props;
+        console.log(sourceData);
         return (
             <Row>
                 <Col md={12}>

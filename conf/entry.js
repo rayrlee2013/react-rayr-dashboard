@@ -3,7 +3,6 @@
  */
 
 module.exports = {
-    base: ['jquery', 'bootstrap', './src/assets/js/app.js'],
-    vendors: ['react', 'classnames', 'react-router', 'react-dom', 'axios'],
+    public: ['jquery', 'bootstrap', './src/assets/js/app.js'],
     app: './src/app.js'
 };

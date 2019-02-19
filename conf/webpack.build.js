@@ -4,11 +4,12 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
 const HappyPack = require('happypack');
 const {assign} = Object;
 
@@ -19,14 +20,17 @@ const HAPPY_CONF = {
     debug: true
 };
 
+//构建目录
+const BUILD = path.resolve(__dirname, '../build')
+
 module.exports = {
     mode: 'production',
     entry: require('./entry'),
     output: {
-        path: path.resolve(__dirname, '../build'),
+        path: BUILD,
         filename: 'js/[name].[chunkhash:6].js',
         chunkFilename: 'js/[name].[chunkhash:6].js',
-        publicPath: '/peiqi/'
+        publicPath: '/'
     },
     resolve: {
         modules: [path.resolve(__dirname, '../src'), 'node_modules'],
@@ -40,18 +44,12 @@ module.exports = {
                 use: ['happypack/loader?id=babel']
             },
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['happypack/loader?id=css']
-                })
-            },
-            {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['happypack/loader?id=scss']
-                })
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.html$/,
@@ -66,7 +64,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            name: 'img/[name].[hash:6].[ext]'
+                            name: 'img/[name].[contenthash:6].[ext]'
                         }
                     }
                 ]
@@ -78,34 +76,58 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            name: 'fonts/[name].[hash:6].[ext]'
+                            name: 'fonts/[name].[ext]'
                         }
                     }
                 ]
             }
         ]
     },
-    plugins: [
-        new webpack.optimize.SplitChunksPlugin({
-            chunks: "async",
-            minSize: 30000,
-            minChunks: 1,
-            maxAsyncRequests: 5,
-            maxInitialRequests: 3,
-            name: true,
-            cacheGroups: {
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: false,
+                uglifyOptions: {
+                    warnings: false,
+                    output: {
+                        comments: false,
+                        beautify: false
+                    },
+                    compressor: {
+                        sequences: true,
+                        drop_debugger: true,
+                        drop_console: true
+                    }
+                }
+            }),
+            new OptimizeCssAssetsPlugin({
+                assetNameRegExp: /\.css$/g,
+                cssProcessor: require('cssnano'),
+                cssProcessorPluginOptions: {
+                    preset: ['default', {discardComments: {removeAll: true}}],
                 },
-                vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10,
-                    minChunks: 1
+                canPrint: true
+            })
+        ],
+        splitChunks: {
+            cacheGroups: {
+                base: {
+                    chunks: 'initial',
+                    name: 'base',
+                    minChunks: 1,
+                    minSize: 30000
                 }
             }
+        }
+    },
+    plugins: [
+        new CleanWebpackPlugin(['build'], {
+            root: path.resolve(__dirname, '../')
         }),
+        new WebpackMd5Hash(),
+        new webpack.HashedModuleIdsPlugin(),
         new HappyPack(assign(HAPPY_CONF, {
             id: 'babel',
             loaders: [
@@ -123,51 +145,21 @@ module.exports = {
                 }
             ]
         })),
-        new HappyPack(assign(HAPPY_CONF, {
-            id: 'css',
-            loaders: ['css-loader']
-        })),
-        new HappyPack(assign(HAPPY_CONF, {
-            id: 'scss',
-            loaders: ['css-loader', 'sass-loader']
-        })),
-        new ExtractTextPlugin({
-            'filename': 'css/styles.[hash:6].css'
-        }),
-        new UglifyJsPlugin({
-            cache: true,
-            parallel: true,
-            sourceMap: false,
-            uglifyOptions: {
-                warnings: false,
-                output: {
-                    comments: false,
-                    beautify: false
-                },
-                compressor: {
-                    sequences: true,
-                    drop_debugger: true,
-                    drop_console: true
-                }
-            }
-        }),
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: {
-                discardComments: {removeAll: true},
-                autoprefixer: false
-            },
-            canPrint: true
-        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'css/styles.[contenthash:6].css',
+            chunkFilename: 'css/styles.[contenthash:6].css'
         }),
         new HtmlWebpackPlugin({
             template: './index.html',
             filename: path.resolve(__dirname, '../build/index.html'),
             inject: 'body'
         })
-    ]
+    ],
+    performance: {
+        hints: false
+    }
 };

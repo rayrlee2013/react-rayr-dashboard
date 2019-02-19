@@ -24,15 +24,11 @@ export default class extends Component {
     }
 
     componentWillMount() {
-        $_ajax.get('userinfo').then((res) => {
-            RAYR_GLOBAL_STORES.UserStore.initUser(res);
-        }, () => {
-
-        }).finally(() => {
+        setTimeout(() => {
             this.setState({
                 isAuth: true
             });
-        });
+        })
     }
 
     render() {

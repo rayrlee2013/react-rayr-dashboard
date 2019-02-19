@@ -57,6 +57,8 @@ class Login extends Component {
         this.props.postData({
             user: user,
             pwd: salt(pwd)
+        }).then((res) => {
+            console.log(res);
         });
     }
 
@@ -72,12 +74,12 @@ class Login extends Component {
                     <div className="login-box-body">
                         <p className="login-box-msg">Sign in to start your session</p>
                         <div className="form-group has-feedback">
-                            <Input placeholder="username" name="user" autocomplete="new-password" value={user}
+                            <Input placeholder="username" name="user" autoComplete="new-password" value={user}
                                    onChange={::this.changeFn}/>
                             <Glyphicon name="envelope" className="form-control-feedback"/>
                         </div>
                         <div className="form-group has-feedback">
-                            <Input placeholder="password" name="pwd" autocomplete="new-password" type="password"
+                            <Input placeholder="password" name="pwd" autoComplete="new-password" type="password"
                                    value={pwd}
                                    onChange={::this.changeFn}/>
                             <Glyphicon name="lock" className="form-control-feedback"/>

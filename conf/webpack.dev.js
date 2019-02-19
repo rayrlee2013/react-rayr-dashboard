@@ -96,24 +96,17 @@ const webpackConfig = {
         ]
     },
     devtool: 'source-map',
-    plugins: [
-        new webpack.optimize.SplitChunksPlugin({
-            chunks: "async",
-            minSize: 30000,
+    optimization: {
+        splitChunks: {
+            chunks: 'initial',
             minChunks: 1,
+            automaticNameDelimiter: '_',
+            maxInitialRequests: Infinity,
             maxAsyncRequests: 5,
-            maxInitialRequests: 3,
-            name: true,
-            default: {
-                minChunks: 2,
-                priority: -20,
-                reuseExistingChunk: true,
-            },
-            base: {
-                test: /[\\/]node_modules[\\/]/,
-                priority: -10
-            }
-        }),
+            minSize: 30000
+        }
+    },
+    plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'

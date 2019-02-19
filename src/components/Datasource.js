@@ -5,12 +5,23 @@
 import React from 'react';
 import axios from 'axios';
 
+axios.defaults.headers.common['AccessToken'] = window.localStorage.getItem('op_iot_token') || '';
+
 function Loading() {
     return <div>加载中</div>
 }
 
 function Error() {
     return <div>加载失败</div>
+}
+
+function DataError({sourceData}) {
+    return (
+        <div>
+            <h5>API错误，错误代码: {sourceData.code}</h5>
+            <p>错误信息: {sourceData.desc}</p>
+        </div>
+    )
 }
 
 export default ({url, params}) => C => {
@@ -26,12 +37,19 @@ export default ({url, params}) => C => {
         }
 
         componentDidMount() {
-            axios.get(`/v2/movie/${url}`, {params}).then((res) => {
+            axios.get(`/iot/${url}`, {params}).then((res) => {
                 if (res.status === 200) {
-                    this.setState({
-                        data: res.data,
-                        status: 'SUCCESS',
-                    });
+                    if (res.data.code === 0) {
+                        this.setState({
+                            data: res.data.data,
+                            status: 'SUCCESS',
+                        });
+                    } else {
+                        this.setState({
+                            status: 'DATA_ERROR',
+                            data: res.data
+                        });
+                    }
                 } else {
                     this.setState({
                         status: 'ERROR',
@@ -54,6 +72,10 @@ export default ({url, params}) => C => {
 
             if (status === 'ERROR') {
                 return <Error/>
+            }
+
+            if (status === 'DATA_ERROR') {
+                return <DataError sourceData={this.state.data}/>
             }
 
             if (status === 'SUCCESS') {
