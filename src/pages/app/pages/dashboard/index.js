@@ -4,23 +4,19 @@
 
 import React, {Component} from 'react';
 import {Box, Row, Col, Btn, Datasource} from 'components';
+import {inject, observer} from 'mobx-react';
 
 const {Header, Body} = Box;
 
 import List from './list';
 
-@Datasource({
-    url: 'devices/overview/status/statistics'
-})
+@inject('CommonStore')
+@observer
 export default class extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
-        const {history, sourceData} = this.props;
-        console.log(sourceData);
+        const {history, CommonStore} = this.props;
+
         return (
             <Row>
                 <Col md={12}>
@@ -29,10 +25,11 @@ export default class extends Component {
                             <h3 className="box-title">最新电影列表</h3>
                         </Header>
                         <Body>
+                            {CommonStore.num}
                         </Body>
                         <Body>
                             <Btn className="pull-left" onClick={() => {
-                                history.$reload();
+                                CommonStore.add();
                             }}>上一页</Btn>
                             <Btn className="pull-right">下一页</Btn>
                         </Body>

@@ -4,7 +4,6 @@
 
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
-import {withRouter} from 'react-router-dom';
 import {Toggle, Label, Icon} from 'components';
 
 function MessagesItem({data}) {
@@ -24,13 +23,12 @@ function MessagesItem({data}) {
     )
 }
 
-@withRouter
-@inject('MessageStore')
+@inject('CommonStore')
 @observer
 export default class extends Component {
 
     render() {
-        const {messages} = this.props.MessageStore;
+        const {messages} = this.props.CommonStore;
         return (
             <Toggle className="messages-menu">
                 <Toggle.Top>

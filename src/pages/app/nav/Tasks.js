@@ -3,11 +3,10 @@
  */
 
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {inject, observer} from 'mobx-react';
 import {Toggle, Label, Icon} from 'components';
 import {$_ajax} from 'services';
 import {Progress} from 'chart';
-
 
 function TaskItem({data}) {
     return (
@@ -23,26 +22,12 @@ function TaskItem({data}) {
     )
 }
 
-@withRouter
+@inject('CommonStore')
+@observer
 export default class extends Component {
 
-    constructor() {
-        super()
-        this.state = {
-            tasks: []
-        };
-    }
-
-    componentWillMount() {
-        $_ajax.get('tasks').then((res) => {
-            this.setState({
-                tasks: res
-            });
-        });
-    }
-
     render() {
-        const {tasks} = this.state;
+        const {tasks} = this.props.CommonStore;
         return (
             <Toggle className="tasks-menu">
                 <Toggle.Top>

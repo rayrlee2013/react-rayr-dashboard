@@ -49,11 +49,10 @@ function Example() {
 }
 
 export default () => {
-
     return (
         <Row>
             <Col md={12}>
-                 <Box widget={true}>
+                <Box widget={true}>
                     <Header border={true}>
                         <h3 className="box-title">组件元件</h3>
                     </Header>

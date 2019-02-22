@@ -3,9 +3,8 @@
  */
 
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import {$_ajax} from 'services';
 import {Toggle, Label, Icon} from 'components';
+import {inject, observer} from 'mobx-react';
 
 function NotificationsItem({data}) {
     return (
@@ -17,26 +16,13 @@ function NotificationsItem({data}) {
     )
 }
 
-@withRouter
+@inject('CommonStore')
+@observer
 export default class extends Component {
 
-    constructor() {
-        super()
-        this.state = {
-            notifications: []
-        };
-    }
-
-    componentWillMount() {
-        $_ajax.get('notifications').then((res) => {
-            this.setState({
-                notifications: res
-            });
-        });
-    }
-
     render() {
-        const {notifications} = this.state;
+        const {notifications} = this.props.CommonStore;
+
         return (
             <Toggle className="notifications-menu">
                 <Toggle.Top>
