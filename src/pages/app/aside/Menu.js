@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import {Icon, Input} from 'components';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {NavLink} from 'components';
 
 class MenuItem extends Component {

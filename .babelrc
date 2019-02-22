@@ -9,20 +9,34 @@
         "@babel/preset-react"
     ],
     "plugins": [
-        "babel-plugin-add-module-exports",
-        "@babel/plugin-proposal-function-bind",
+        [
+            "babel-plugin-add-module-exports"
+        ],
+        [
+            "@babel/plugin-proposal-function-bind"
+        ],
         [
             "@babel/plugin-proposal-decorators",
             {
                 legacy: true
             }
         ],
-        "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-proposal-export-default-from",
+        [
+            "@babel/plugin-syntax-dynamic-import"
+        ],
+        [
+            "@babel/plugin-proposal-export-default-from"
+        ],
         [
             "@babel/plugin-proposal-class-properties",
             {
                 "loose": true
+            }
+        ],
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
             }
         ]
     ]

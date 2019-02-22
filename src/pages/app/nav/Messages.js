@@ -3,9 +3,9 @@
  */
 
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {inject, observer} from 'mobx-react';
+import {withRouter} from 'react-router-dom';
 import {Toggle, Label, Icon} from 'components';
-import {$_ajax} from 'services';
 
 function MessagesItem({data}) {
     return (
@@ -25,25 +25,12 @@ function MessagesItem({data}) {
 }
 
 @withRouter
+@inject('MessageStore')
+@observer
 export default class extends Component {
 
-    constructor() {
-        super()
-        this.state = {
-            messages: []
-        };
-    }
-
-    componentWillMount() {
-        $_ajax.get('messages').then((res) => {
-            this.setState({
-                messages: res
-            });
-        });
-    }
-
     render() {
-        const {messages} = this.state;
+        const {messages} = this.props.MessageStore;
         return (
             <Toggle className="messages-menu">
                 <Toggle.Top>
