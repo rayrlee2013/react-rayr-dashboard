@@ -20,6 +20,7 @@ export Box from './Box';
 export NavLink from './NavLink';
 export Datasource from './Datasource'; //测试
 export Datafetch from './Datafetch'; //测试
+export Middlewarefetch from './Middlewarefetch'; //测试
 
 //业务
 export AuthLogin from './AuthLogin'; //标签

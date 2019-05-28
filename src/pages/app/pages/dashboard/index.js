@@ -3,20 +3,18 @@
  */
 
 import React, {Component} from 'react';
-import {Box, Row, Col, Btn, Datasource} from 'components';
+import {Box, Row, Col, Btn} from 'components';
 import {inject, observer} from 'mobx-react';
 
 const {Header, Body} = Box;
 
-import List from './list';
-
-@inject('CommonStore')
+@inject('CommonStore', 'CityStore')
 @observer
 export default class extends Component {
 
     render() {
-        const {history, CommonStore} = this.props;
-
+        const {CommonStore, CityStore} = this.props;
+        console.log(CityStore);
         return (
             <Row>
                 <Col md={12}>

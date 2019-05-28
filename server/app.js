@@ -55,19 +55,10 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-app.use('/github', proxy(require('./middleware/github')));
-
-app.use('/v2/movie', proxy({
-    target: 'https://api.douban.com',
+app.use('/v1', proxy({
+    target: 'http://cangdu.org:8001',
     changeOrigin: true
 }));
-
-app.use('/iot', proxy({
-    target: 'http://10.109.0.59:10000',
-    changeOrigin: true
-}));
-
-mockMiddleware(app);
 
 app.get('*', (req, res, next) => {
     const filename = path.join(compiler.outputPath, 'index.html');
