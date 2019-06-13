@@ -13,3 +13,13 @@ a {
 button {
     outline: none !important;
 }
+
+.error-page > .headline {
+    float: none;
+    text-align: center;
+}
+
+.error-page > .error-content {
+    margin: 0;
+    text-align: center;
+}

@@ -3,17 +3,19 @@
  */
 
 import React, {Component} from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch} from 'react-router';
+import {RedirectTo} from 'components';
 
 export default class extends Component {
+
     render() {
         return (
             <Switch>
                 <Route path="/app" component={require('./app')}/>
                 <Route path="/login" component={require('lazy|./login')}/>
-                <Route component={() => (
-                    <Redirect push to="/app"/>
-                )}/>
+                <Route component={() => {
+                    return <RedirectTo to='/app'/>;
+                }}/>
             </Switch>
         )
     }

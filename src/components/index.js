@@ -5,6 +5,7 @@
 export ComponentLoading from './ComponentLoading';
 
 export HomeLoading from './HomeLoading';
+export RedirectTo from './RedirectTo';
 
 export Toggle from './Toggle';
 

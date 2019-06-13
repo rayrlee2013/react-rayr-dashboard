@@ -1,4 +1,4 @@
-import createBrowserHistory from 'history/createBrowserHistory';
+import {createBrowserHistory} from 'history/cjs/history';
 import qs from 'query-string';
 import {$_url} from 'services';
 

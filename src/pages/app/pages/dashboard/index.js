@@ -5,16 +5,13 @@
 import React, {Component} from 'react';
 import {Box, Row, Col, Btn} from 'components';
 import {inject, observer} from 'mobx-react';
+import {Link} from 'react-router-dom';
 
 const {Header, Body} = Box;
 
-@inject('CommonStore', 'CityStore')
-@observer
 export default class extends Component {
 
     render() {
-        const {CommonStore, CityStore} = this.props;
-        console.log(CityStore);
         return (
             <Row>
                 <Col md={12}>
@@ -23,12 +20,12 @@ export default class extends Component {
                             <h3 className="box-title">最新电影列表</h3>
                         </Header>
                         <Body>
-                            {CommonStore.num}
+                            <Link to={{
+                                pathname: "/courses"
+                            }}>About</Link>
                         </Body>
                         <Body>
-                            <Btn className="pull-left" onClick={() => {
-                                CommonStore.add();
-                            }}>上一页</Btn>
+                            <Btn className="pull-left">上一页</Btn>
                             <Btn className="pull-right">下一页</Btn>
                         </Body>
                     </Box>

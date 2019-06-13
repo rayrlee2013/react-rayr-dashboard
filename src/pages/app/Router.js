@@ -3,7 +3,8 @@
  */
 
 import React from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch} from 'react-router';
+import {RedirectTo} from 'components';
 
 export default class extends React.Component {
     render() {
@@ -13,9 +14,7 @@ export default class extends React.Component {
                 <Route path={`${match.url}/dashboard`} component={require('lazy|./pages/dashboard')}/>
                 <Route path={`${match.url}/widgets`} component={require('lazy|./pages/widgets')}/>
                 <Route path={`${match.url}/profile`} component={require('lazy|./pages/profile')}/>
-                <Route component={() => (
-                    <Redirect push to="/app/dashboard"/>
-                )}/>
+                <Route component={require('./404')}/>
             </Switch>
         )
     }
