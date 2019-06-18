@@ -23,5 +23,12 @@ export Datasource from './Datasource'; //测试
 export Datafetch from './Datafetch'; //测试
 export Middlewarefetch from './Middlewarefetch'; //测试
 
+
+export Card from './Card';
+
 //业务
 export AuthLogin from './AuthLogin'; //标签
+
+
+//格式化
+export Thousandth from './number/Thousandth';
