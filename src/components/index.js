@@ -17,7 +17,6 @@ export Input from './Input'; //标签
 export Switch from './Switch';
 export Btn from './Btn';
 export Abtn from './Abtn'; //链接按钮
-export Box from './Box';
 export NavLink from './NavLink';
 export Datasource from './Datasource'; //测试
 export Datafetch from './Datafetch'; //测试
@@ -32,3 +31,10 @@ export AuthLogin from './AuthLogin'; //标签
 
 //格式化
 export Thousandth from './number/Thousandth';
+
+//容器
+export TabBox from './container/Tab';
+export Box from './container/Box';
+
+//图表
+export Chart from './chart/Chart';

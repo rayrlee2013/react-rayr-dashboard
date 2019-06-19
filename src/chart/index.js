@@ -3,3 +3,4 @@
  */
 
 export Progress from './Progress';
+export D3Chart from './D3';

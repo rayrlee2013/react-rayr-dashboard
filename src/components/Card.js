@@ -6,6 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Thousandth from './number/Thousandth';
+import Icon from './Icon';
 
 export default class extends React.Component {
 
@@ -34,9 +35,9 @@ export default class extends React.Component {
                     <p>{this.props.label}</p>
                 </div>
                 <div className="icon">
-                    <i className={classnames('fa', `fa-${this.props.icon}`)}></i>
+                    <Icon name={this.props.icon}/>
                 </div>
-                <a className="small-box-footer">More info <i className="fa fa-arrow-circle-right"></i></a>
+                <a className="small-box-footer">More info <Icon name={'arrow-circle-right'}/></a>
             </div>
         )
     }

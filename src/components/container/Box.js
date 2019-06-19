@@ -2,9 +2,9 @@
  * Created by Rayr Lee on 2018/11/6.
  */
 
-import React from 'react';
+import React from '_react@16.8.6@react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classnames from '_classnames@2.2.6@classnames';
 
 class Header extends React.Component {
     render() {
@@ -38,7 +38,7 @@ export default class extends React.Component {
 
     static defaultProps = {
         className: '',
-        type: 'default',
+        type: '',
         widget: false,
         solid: false
     };
