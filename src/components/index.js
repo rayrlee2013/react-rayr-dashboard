@@ -3,8 +3,6 @@
  */
 
 export ComponentLoading from './ComponentLoading';
-
-export HomeLoading from './HomeLoading';
 export RedirectTo from './RedirectTo';
 
 export Toggle from './Toggle';
@@ -35,3 +33,5 @@ export Thousandth from './number/Thousandth';
 //容器
 export TabBox from './container/Tab';
 export Box from './container/Box';
+
+export Loading from './Loading';

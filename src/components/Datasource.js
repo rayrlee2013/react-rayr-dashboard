@@ -3,16 +3,10 @@
  */
 
 import React from 'react';
+import {Loading} from 'components';
 
 const pre = 'https://www.easy-mock.com/mock/5d0b41feb16ec30f933be171/heibaizhu_api/';
 
-function Loading() {
-    return (
-        <div className="lds-box">
-            <div className="lds-dual-ring"></div>
-        </div>
-    )
-}
 
 function Error() {
     return <div>加载失败</div>
