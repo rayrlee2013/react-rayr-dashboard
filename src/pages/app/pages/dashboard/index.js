@@ -40,8 +40,8 @@ export default class extends Component {
                 <Row>
                     <Col lg={7}>
                         <TabBox title={'基本图表'} icon={'bar-chart'} iNow={1}>
-                            <TabBox.Pane name={'折线图'}><ChartShow type={'chartA'}/></TabBox.Pane>
-                            <TabBox.Pane name={'柱状图'}><ChartShow type={'chartB'}/></TabBox.Pane>
+                            <TabBox.Pane className={'dashboard-height'} name={'折线图'}><ChartShow type={'chartA'}/></TabBox.Pane>
+                            <TabBox.Pane className={'dashboard-height'} name={'柱状图'}><ChartShow type={'chartB'}/></TabBox.Pane>
                         </TabBox>
                     </Col>
                     <Col lg={5}>
@@ -49,7 +49,7 @@ export default class extends Component {
                             <Header>
                                 <Icon name={'user'}/> 2017年中国人口密度分布
                             </Header>
-                            <Body>
+                            <Body className={'dashboard-height'}>
                                 <PopulationChart/>
                             </Body>
                         </Box>
