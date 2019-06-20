@@ -60,6 +60,11 @@ app.use('/v1', proxy({
     changeOrigin: true
 }));
 
+app.use('/json', proxy({
+    target: 'http://60.205.213.209:8080',
+    changeOrigin: true
+}));
+
 app.get('*', (req, res, next) => {
     const filename = path.join(compiler.outputPath, 'index.html');
     compiler.outputFileSystem.readFile(filename, (error, result) => {

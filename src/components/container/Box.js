@@ -31,7 +31,7 @@ export default class extends React.Component {
 
     static propTypes = {
         className: PropTypes.string,
-        type: PropTypes.oneOf(['default', 'primary', 'danger', 'info', 'warning']),
+        type: PropTypes.oneOf(['default', 'primary', 'danger', 'info', 'warning', '']),
         widget: PropTypes.bool,
         solid: PropTypes.bool
     };

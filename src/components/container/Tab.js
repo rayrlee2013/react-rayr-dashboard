@@ -8,7 +8,7 @@ import classnames from 'classnames';
 import Icon from "../Icon";
 
 function Pane({isShow, children}) {
-    return isShow ? <div className={classnames('tab-pane', {active: isShow})}>{children}</div> : null;
+    return isShow ? <div style={{minHeight: 420}} className={classnames('tab-pane', {active: isShow})}>{children}</div> : null;
 }
 
 export default class extends React.Component {

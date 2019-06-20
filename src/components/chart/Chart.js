@@ -53,7 +53,6 @@ export default class extends React.Component {
 
     componentDidMount() {
         let option = _.merge(this.props.option, defaultOption);
-        console.log(option);
         this.chart = echarts.init(this.refs.echart, 'light');
         this.chart.setOption(option);
         window.addEventListener('resize', this.resize.bind(this), false);
