@@ -3,7 +3,8 @@
  */
 
 import React, {Component, Fragment} from 'react';
-import {Box, Row, Col, Btn, Card, TabBox, Chart, Icon, Datasource} from 'components';
+import {Box, Row, Col, Btn, Card, TabBox, Icon, Datasource} from 'components';
+import {Chart} from 'chart';
 
 import PopulationChart from './population';
 

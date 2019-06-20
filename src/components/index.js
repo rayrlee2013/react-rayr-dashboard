@@ -35,6 +35,3 @@ export Thousandth from './number/Thousandth';
 //容器
 export TabBox from './container/Tab';
 export Box from './container/Box';
-
-//图表
-export Chart from './chart/Chart';

@@ -3,3 +3,6 @@
  */
 
 export Progress from './Progress';
+
+//图表
+export Chart from './Chart';
