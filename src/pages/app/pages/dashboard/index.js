@@ -8,8 +8,9 @@ import {Chart} from 'chart';
 
 import PopulationChart from './population';
 import GoalChart from './goal';
+import Description from './description';
 
-const {Header, Body} = Box;
+const {Header, Body, Footer} = Box;
 
 
 @Datasource('dashboard')
@@ -44,12 +45,15 @@ export default class extends Component {
                             <Header>
                                 <Icon name={'book'}/> Monthly Recap Report
                             </Header>
-                            <Body className={'dashboard-height'}>
+                            <Body style={{height: 290, position: 'relative'}}>
                                 <Row>
                                     <Col md={7}><ChartShow type={'chartC'} height={270}/></Col>
                                     <Col md={5}><GoalChart/></Col>
                                 </Row>
                             </Body>
+                            <Footer>
+                                <Description></Description>
+                            </Footer>
                         </Box>
                     </Col>
                 </Row>

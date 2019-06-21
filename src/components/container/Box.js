@@ -22,10 +22,19 @@ class Header extends React.Component {
 class Body extends React.Component {
     render() {
         return (
-            <div className={classnames('box-body', this.props.className)}>{this.props.children}</div>
+            <div className={classnames('box-body', this.props.className)} style={this.props.style}>{this.props.children}</div>
         )
     }
 }
+
+class Footer extends React.Component {
+    render() {
+        return (
+            <div className={classnames('box-footer', this.props.className)}>{this.props.children}</div>
+        )
+    }
+}
+
 
 export default class extends React.Component {
 
@@ -46,6 +55,8 @@ export default class extends React.Component {
     static Header = Header;
 
     static Body = Body;
+
+    static Footer = Footer;
 
     render() {
 
