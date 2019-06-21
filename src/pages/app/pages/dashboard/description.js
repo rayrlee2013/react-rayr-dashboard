@@ -3,7 +3,36 @@
  */
 
 import React from 'react';
-import {Row, Col, Icon} from "components";
+import {Row, Col, Icon, Thousandth} from "components";
+
+const statusConf = {
+    '1': {
+        type: 'up',
+        color: 'green'
+    },
+    '2': {
+        type: 'left',
+        color: 'yellow'
+    },
+    '3': {
+        type: 'down',
+        color: 'red'
+    }
+}
+
+function Item({data}) {
+    return (
+        <Col sm={3} xs={6}>
+            <div className="description-block border-right">
+                <span className={`description-percentage text-${statusConf[data.type].color}`}>
+                    <Icon name={`caret-${statusConf[data.type].type}`}/> {data.percent}%
+                </span>
+                <h5 className="description-header">$<Thousandth>{data.money}</Thousandth></h5>
+                <span className="description-text">{data.label}</span>
+            </div>
+        </Col>
+    )
+}
 
 
 export default class extends React.Component {
@@ -13,28 +42,28 @@ export default class extends React.Component {
         this.state = {
             data: [
                 {
-                    label: '产品设计目标',
-                    done: 120,
-                    total: 200,
-                    type: 'aqua'
+                    label: 'TOTAL REVENUE',
+                    percent: '17%',
+                    money: 35210.43,
+                    type: '1'
                 },
                 {
-                    label: '目前总体开发进度',
-                    done: 310,
-                    total: 480,
-                    type: 'red'
+                    label: 'TOTAL COST',
+                    percent: '0%',
+                    money: 10390.90,
+                    type: '2'
                 },
                 {
-                    label: 'QA回归开发目标',
-                    done: 480,
-                    total: 800,
-                    type: 'green'
+                    label: 'TOTAL PROFIT',
+                    percent: '20%',
+                    money: 24813.53,
+                    type: '1'
                 },
                 {
-                    label: '上线版本数量',
-                    done: 490,
-                    total: 500,
-                    type: 'yellow'
+                    label: 'GOAL COMPLETIONS',
+                    percent: '18%',
+                    money: 1200,
+                    type: '3'
                 }
             ]
         }
@@ -43,42 +72,9 @@ export default class extends React.Component {
     render() {
         return (
             <Row className="row">
-                <Col sm={3} xs={6}>
-                    <div className="description-block border-right">
-                        <span className="description-percentage text-green">
-                            <Icon name="caret-up"/> 17%
-                        </span>
-                        <h5 className="description-header">$35,210.43</h5>
-                        <span className="description-text">TOTAL REVENUE</span>
-                    </div>
-                </Col>
-                <Col sm={3} xs={6}>
-                    <div className="description-block border-right">
-                        <span className="description-percentage text-green">
-                            <Icon name="caret-up"/> 17%
-                        </span>
-                        <h5 className="description-header">$35,210.43</h5>
-                        <span className="description-text">TOTAL REVENUE</span>
-                    </div>
-                </Col>
-                <Col sm={3} xs={6}>
-                    <div className="description-block border-right">
-                        <span className="description-percentage text-green">
-                            <Icon name="caret-up"/> 17%
-                        </span>
-                        <h5 className="description-header">$35,210.43</h5>
-                        <span className="description-text">TOTAL REVENUE</span>
-                    </div>
-                </Col>
-                <Col sm={3} xs={6}>
-                    <div className="description-block border-right">
-                        <span className="description-percentage text-green">
-                            <Icon name="caret-up"/> 17%
-                        </span>
-                        <h5 className="description-header">$35,210.43</h5>
-                        <span className="description-text">TOTAL REVENUE</span>
-                    </div>
-                </Col>
+                {
+                    this.state.data.map((item, index)=> <Item data={item} key={index}/>)
+                }
             </Row>
         )
     }
