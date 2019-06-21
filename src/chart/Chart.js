@@ -21,13 +21,6 @@ const defaultOption = {
     toolbox: {
         show: false
     },
-    xAxis: {
-        axisLine: {
-            lineStyle: {
-                color: 'blue'
-            }
-        }
-    },
     yAxis: {
         splitLine: {
             lineStyle: {
@@ -46,6 +39,17 @@ const defaultOption = {
 export default class extends React.Component {
 
     chart = null;
+
+    static propTypes = {
+        className: PropTypes.string,
+        height: PropTypes.number
+
+    };
+
+    static defaultProps = {
+        className: '',
+        height: 420,
+    };
 
     resize() {
         this.chart.resize();
@@ -66,7 +70,8 @@ export default class extends React.Component {
 
     render() {
         return (
-            <div ref="echart" style={{minHeight: 420}}></div>
+            <div ref="echart" className={classnames('chart', this.props.className)}
+                 style={{minHeight: this.props.height}}></div>
         )
     }
 }

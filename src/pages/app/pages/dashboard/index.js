@@ -7,6 +7,7 @@ import {Box, Row, Col, Btn, Card, TabBox, Icon, Datasource} from 'components';
 import {Chart} from 'chart';
 
 import PopulationChart from './population';
+import GoalChart from './goal';
 
 const {Header, Body} = Box;
 
@@ -14,8 +15,8 @@ const {Header, Body} = Box;
 @Datasource('dashboard')
 class ChartShow extends Component {
     render() {
-        const {sourceData, type} = this.props;
-        return <Chart option={sourceData[type]}/>
+        const {sourceData, type, height} = this.props;
+        return <Chart option={sourceData[type]} height={height}/>
     }
 }
 
@@ -38,11 +39,35 @@ export default class extends Component {
                     </Col>
                 </Row>
                 <Row>
+                    <Col md={12}>
+                        <Box solid={true}>
+                            <Header>
+                                <Icon name={'book'}/> Monthly Recap Report
+                            </Header>
+                            <Body className={'dashboard-height'}>
+                                <Row>
+                                    <Col md={7}><ChartShow type={'chartC'} height={270}/></Col>
+                                    <Col md={5}><GoalChart/></Col>
+                                </Row>
+                            </Body>
+                        </Box>
+                    </Col>
+                </Row>
+                <Row>
                     <Col lg={7}>
                         <TabBox title={'基本图表'} icon={'bar-chart'} iNow={1}>
-                            <TabBox.Pane className={'dashboard-height'} name={'折线图'}><ChartShow type={'chartA'}/></TabBox.Pane>
-                            <TabBox.Pane className={'dashboard-height'} name={'柱状图'}><ChartShow type={'chartB'}/></TabBox.Pane>
+                            <TabBox.Pane className={'dashboard-height'} name={'折线图'}><ChartShow
+                                type={'chartA'}/></TabBox.Pane>
+                            <TabBox.Pane className={'dashboard-height'} name={'柱状图'}><ChartShow
+                                type={'chartB'}/></TabBox.Pane>
                         </TabBox>
+                        <Box solid={true}>
+                            <Header>
+                                <Icon name={'book'}/> 代办事项
+                            </Header>
+                            <Body className={'dashboard-height'}>
+                            </Body>
+                        </Box>
                     </Col>
                     <Col lg={5}>
                         <Box className={'bg-light-blue-gradient'} solid={true}>
