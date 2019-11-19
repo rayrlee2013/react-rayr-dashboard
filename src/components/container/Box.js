@@ -2,9 +2,9 @@
  * Created by Rayr Lee on 2018/11/6.
  */
 
-import React from '_react@16.8.6@react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from '_classnames@2.2.6@classnames';
+import classnames from 'classnames';
 
 class Header extends React.Component {
     render() {
