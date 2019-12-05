@@ -5,10 +5,26 @@
 export default [
     {
         id: 1,
-        name: 'Dashboard',
-        url: 'dashboard',
+        name: '房源列表',
+        url: 'room',
         icon: 'dashboard',
-        isLeaf: true
+        isLeaf: false,
+        children: [
+            {
+                id: 4,
+                name: 'echarts',
+                url: 'echarts',
+                icon: null,
+                isLeaf: true
+            },
+            {
+                id: 5,
+                name: 'd3 charts',
+                url: 'd3',
+                icon: null,
+                isLeaf: true
+            }
+        ]
     },
     {
         id: 2,

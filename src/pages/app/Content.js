@@ -13,14 +13,14 @@ export default class extends Component {
         return (
             <div className="content-wrapper">
                 <section className="content-header">
-                    <h1>
-                        Dashboard
-                        <small>Version React</small>
-                    </h1>
-                    <ol className="breadcrumb">
-                        <li><a href="#"><Icon name={'dashboard'}></Icon> Home</a></li>
-                        <li className="active">Dashboard</li>
-                    </ol>
+                    {/*<h1>*/}
+                    {/*    Dashboard*/}
+                    {/*    <small>Version React</small>*/}
+                    {/*</h1>*/}
+                    {/*<ol className="breadcrumb">*/}
+                    {/*    <li><a href="#"><Icon name={'dashboard'}></Icon> Home</a></li>*/}
+                    {/*    <li className="active">Dashboard</li>*/}
+                    {/*</ol>*/}
                 </section>
                 <section className="content">
                     <Router {...this.props}/>

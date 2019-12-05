@@ -14,6 +14,7 @@ export default class extends React.Component {
                 <Route path={`${match.url}/dashboard`} component={require('lazy|./pages/dashboard')}/>
                 <Route path={`${match.url}/widgets`} component={require('lazy|./pages/widgets')}/>
                 <Route path={`${match.url}/profile`} component={require('lazy|./pages/profile')}/>
+                <Route path={`${match.url}/home/list`} component={require('./pages/home/list')}/>
                 <Route component={require('./404')}/>
             </Switch>
         )

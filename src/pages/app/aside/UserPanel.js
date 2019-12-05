@@ -19,7 +19,7 @@ export default class extends Component {
                 </div>
                 <div className="pull-left info">
                     <p>{user.name}</p>
-                    <a><Icon name={'circle'} color={'success'}/> Online</a>
+                    <a><Icon name={'circle'} color={'success'}/> 登录中</a>
                 </div>
             </div>
         )

@@ -10,10 +10,10 @@ import {NavLink} from 'components';
 
 class MenuItem extends Component {
     render() {
-        const {data, pathname} = this.props;
+        const {data, parent, pathname} = this.props;
         return (
             <li>
-                <NavLink to={{pathname: `/app/${data.url}`}} nPath={pathname}>
+                <NavLink to={{pathname: `/app/${parent.url}/${data.url}`}} nPath={pathname}>
                     <Icon name={data.icon || 'circle-o'}/>
                     <span>{data.name}</span>
                 </NavLink>
@@ -38,7 +38,7 @@ class Menu extends Component {
                     {
                         data.children.map(item => {
                             return (
-                                <MenuItem key={item.id} data={item} pathname={pathname}/>
+                                <MenuItem key={item.id} data={item} parent={data} pathname={pathname}/>
                             )
                         })
                     }
@@ -59,7 +59,6 @@ export default class extends Component {
 
         return (
             <ul className="sidebar-menu rayr-sidebar-menu" data-widget="tree">
-                <li className="header">MAIN NAVIGATION</li>
                 {
                     menu.map((item) => {
                         if (item.isLeaf) {

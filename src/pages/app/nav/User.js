@@ -32,13 +32,13 @@ export default class extends Component {
                     <li className="user-body">
                         <Row>
                             <Col xs={4} className="text-center">
-                                <a href="#">Followers</a>
+                                <a href="#">更新信息</a>
                             </Col>
                             <Col xs={4} className="text-center">
-                                <a href="#">Sales</a>
+                                <a href="#">权限查询</a>
                             </Col>
                             <Col xs={4} className="text-center">
-                                <a href="#">Friends</a>
+                                <a href="#">修改密码</a>
                             </Col>
                         </Row>
                     </li>
@@ -46,10 +46,10 @@ export default class extends Component {
                         <div className="pull-left">
                             <Btn flat={true} onClick={() => {
                                 this.props.history.push('/app/profile');
-                            }}>Profile</Btn>
+                            }}>个人中心</Btn>
                         </div>
                         <div className="pull-right">
-                            <Abtn href="/login" flat={true}>Sign out</Abtn>
+                            <Abtn href="/login" flat={true}>退出系统</Abtn>
                         </div>
                     </li>
                 </Toggle.Menu>

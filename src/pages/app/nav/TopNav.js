@@ -21,9 +21,9 @@ export default function () {
                     <Notifications/>
                     <Tasks/>
                     <User/>
-                    <li>
-                        <a data-toggle="control-sidebar"><Icon name={'gears'}/></a>
-                    </li>
+                    {/*<li>*/}
+                    {/*    <a data-toggle="control-sidebar"><Icon name={'gears'}/></a>*/}
+                    {/*</li>*/}
                 </ul>
             </div>
         </nav>

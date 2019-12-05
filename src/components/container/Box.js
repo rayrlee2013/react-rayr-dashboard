@@ -48,7 +48,7 @@ export default class extends React.Component {
     static defaultProps = {
         className: '',
         type: '',
-        widget: false,
+        widget: true,
         solid: false
     };
 
